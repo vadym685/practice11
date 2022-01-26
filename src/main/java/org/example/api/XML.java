@@ -89,7 +89,7 @@ public class XML {
                 System.out.println("Start fix average");
                 fixAverage(studentList);
                 System.out.println("Start creating fixed XML File");
-                createFixFile(studentList,xmlOutFile);
+                createFixFile(studentList, xmlOutFile);
             }
             System.out.println("App finished");
         } catch (ParserConfigurationException | SAXException | IOException e) {
@@ -112,10 +112,13 @@ public class XML {
             tempFixAverage = Double.parseDouble(stringTempFixAverage.replace(",", "."));
             if (tempFixAverage != 0 && student.getAverage() != tempFixAverage) {
                 student.setFixAverage(tempFixAverage);
-            }
-            System.out.println("Fixing the average student " + student.getFirstname() + " " + student.getLastname() + ", group " + student.getGroupnumber() +
-                    ", from " + student.getAverage() + " to " + tempFixAverage);
+                System.out.println("Fixing the average student " + student.getFirstname() + " " + student.getLastname() + ", group " + student.getGroupnumber() +
+                        ", from " + student.getAverage() + " to " + tempFixAverage);
+            } else {
+                student.setFixAverage(student.getAverage());            }
+
         }
+
     }
 
     private static void createFixFile(ArrayList<Student> studentArrayList, String xmlOutFile) {
@@ -131,7 +134,7 @@ public class XML {
             Element root = document.createElement("group");
             document.appendChild(root);
 
-            for (Student student: studentArrayList) {
+            for (Student student : studentArrayList) {
 
                 Element studentElement = document.createElement("student");
                 root.appendChild(studentElement);
@@ -148,7 +151,7 @@ public class XML {
                 groupnumber.setValue(student.getGroupnumber());
                 studentElement.setAttributeNode(groupnumber);
 
-                for (Subject subject : student.getSubjectList()){
+                for (Subject subject : student.getSubjectList()) {
                     Element subjectElement = document.createElement("subject");
                     studentElement.appendChild(subjectElement);
 
@@ -169,7 +172,7 @@ public class XML {
             Transformer transformer = transformerFactory.newTransformer();
 
             DOMImplementation domImpl = document.getImplementation();
-            DocumentType doctype = domImpl.createDocumentType("DOCTYPE","group"                    ,
+            DocumentType doctype = domImpl.createDocumentType("DOCTYPE", "group",
                     "group.dtd");
 
             transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, doctype.getSystemId());

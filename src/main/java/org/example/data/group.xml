@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE group SYSTEM "group.dtd">
 <group>
-    <student lastname="Kushnir" groupnumber="1" firstname="Vadym">
-        <subject title="Math" mark="1"/>
-        <subject title="Geo" mark="2"/>
-        <subject title="Phys" mark="3"/>
-        <subject title="Lang" mark="4"/>
-        <average>3.3</average>
+    <student firstname="Vadym" groupnumber="1" lastname="Kushnir">
+        <subject mark="1" title="Math"/>
+        <subject mark="2" title="Geo"/>
+        <subject mark="3" title="Phys"/>
+        <subject mark="4" title="Lang"/>
+        <average>2.12</average>
     </student>
-    <student lastname="Kushnir" groupnumber="2" firstname="Roman">
-        <subject title="Math" mark="1"/>
-        <subject title="Geo" mark="2"/>
-        <subject title="Phys" mark="4"/>
-        <average>3.3</average>
+    <student firstname="Roman" groupnumber="2" lastname="Kushnir">
+        <subject mark="1" title="Math"/>
+        <subject mark="2" title="Geo"/>
+        <subject mark="4" title="Phys"/>
+        <average>2.3</average>
     </student>
-
 </group>
